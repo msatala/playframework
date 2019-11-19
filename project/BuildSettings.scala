@@ -297,7 +297,7 @@ object BuildSettings {
    */
   def PlayCrossBuiltProject(name: String, dir: String): Project = {
     Project(name, file(dir))
-      .enablePlugins(PlayLibrary, AutomateHeaderPlugin, AkkaSnapshotRepositories)
+      .enablePlugins(PlayLibrary, AutomateHeaderPlugin, AkkaSnapshotRepositories26)
       .settings(playRuntimeSettings: _*)
       .settings(omnidocSettings: _*)
       .settings(
@@ -347,7 +347,9 @@ object BuildSettings {
       .settings(playScriptedSettings: _*)
       .settings(
         fork in Test := false
-      )
+      ).settings(
+        organization := "shaded26.com.typesafe.play"
+    )
   }
 
 }

@@ -2,10 +2,10 @@
  * Copyright (C) 2009-2019 Lightbend Inc. <https://www.lightbend.com>
  */
 
-package play.routes.compiler.templates
+package shaded26.play.routes.compiler.templates
 
 import org.specs2.mutable.Specification
-import play.routes.compiler._
+import shaded26.play.routes.compiler._
 
 class TemplatesSpec extends Specification {
   "javascript reverse routes" should {

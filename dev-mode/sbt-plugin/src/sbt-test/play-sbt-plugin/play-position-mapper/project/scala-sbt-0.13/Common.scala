@@ -2,10 +2,10 @@
  * Copyright (C) 2009-2019 Lightbend Inc. <https://www.lightbend.com>
  */
 
-import play.sbt.PlayScala
-import play.sbt.test.MediatorWorkaroundPlugin
+import shaded26.play.sbt.PlayScala26
 import sbt.Keys._
 import sbt._
+import shaded26.play.sbt.test.MediatorWorkaroundPlugin26
 
 object Common {
 

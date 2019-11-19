@@ -31,16 +31,18 @@ lazy val RoutesCompilerProject = PlayDevelopmentProject("Routes-Compiler", "dev-
   .enablePlugins(SbtTwirl)
   .settings(
     libraryDependencies ++= routesCompilerDependencies(scalaVersion.value),
-    TwirlKeys.templateFormats := Map("twirl" -> "play.routes.compiler.ScalaFormat")
+    TwirlKeys.templateFormats := Map("twirl" -> "shaded26.play.routes.compiler.ScalaFormat")
   )
+  .settings(organization:="shaded26.com.typesafe.play")
 
 lazy val SbtRoutesCompilerProject = PlaySbtProject("Sbt-Routes-Compiler", "dev-mode/routes-compiler")
   .enablePlugins(SbtTwirl)
   .settings(
     target := target.value / "sbt-routes-compiler",
     libraryDependencies ++= routesCompilerDependencies(scalaVersion.value),
-    TwirlKeys.templateFormats := Map("twirl" -> "play.routes.compiler.ScalaFormat")
+    TwirlKeys.templateFormats := Map("twirl" -> "shaded26.play.routes.compiler.ScalaFormat")
   )
+  .settings(organization:="shaded26.com.typesafe.play")
 
 lazy val StreamsProject = PlayCrossBuiltProject("Play-Streams", "core/play-streams")
   .settings(libraryDependencies ++= streamsDependencies)
@@ -221,6 +223,7 @@ lazy val SbtPluginProject = PlaySbtPluginProject("Sbt-Plugin", "dev-mode/sbt-plu
     }
   )
   .dependsOn(SbtRoutesCompilerProject, RunSupportProject)
+  .settings(organization:="shaded26.com.typesafe.play")
 
 lazy val PlayLogback = PlayCrossBuiltProject("Play-Logback", "core/play-logback")
   .settings(

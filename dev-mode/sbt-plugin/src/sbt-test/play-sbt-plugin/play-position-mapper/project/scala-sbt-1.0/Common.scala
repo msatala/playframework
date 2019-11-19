@@ -5,14 +5,13 @@
 import sbt._
 import sbt.Keys._
 import play.sbt.PlayScala
-import play.sbt.test.MediatorWorkaroundPlugin
-
 import org.apache.logging.log4j.Level
 import org.apache.logging.log4j.core.{ LogEvent => Log4JLogEvent, _ }
 import org.apache.logging.log4j.core.Filter.Result
 import org.apache.logging.log4j.core.appender.AbstractAppender
 import org.apache.logging.log4j.core.filter.LevelRangeFilter
 import org.apache.logging.log4j.core.layout.PatternLayout
+import shaded26.play.sbt.test.MediatorWorkaroundPlugin26
 
 object Common {
 

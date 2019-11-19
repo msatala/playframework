@@ -10,16 +10,17 @@ import java.io.InputStream
 import java.net.HttpURLConnection
 import java.util.concurrent.Executors
 import java.util.jar.JarFile
+
 import com.typesafe.play.docs.sbtplugin.Imports._
 import org.pegdown.ast._
 import org.pegdown.ast.Node
 import org.pegdown.plugins.ToHtmlSerializerPlugin
 import org.pegdown.plugins.PegDownPlugins
 import org.pegdown._
-import play.sbt.Colors
 import play.doc._
-import sbt.{ FileRepository => _, _ }
+import sbt.{FileRepository => _, _}
 import sbt.Keys._
+
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.concurrent.duration.Duration
@@ -27,8 +28,8 @@ import scala.concurrent.Await
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext
 import scala.util.control.NonFatal
-
 import Imports.PlayDocsKeys._
+import shaded26.play.sbt.Colors26
 
 // Test that all the docs are renderable and valid
 object PlayDocsValidation extends PlayDocsValidationCompat {
@@ -388,11 +389,11 @@ object PlayDocsValidation extends PlayDocsValidationCompat {
 
     def doAssertion(desc: String, errors: Seq[_])(onFail: => Unit): Unit = {
       if (errors.isEmpty) {
-        log.info("[" + Colors.green("pass") + "] " + desc)
+        log.info("[" + Colors26.green("pass") + "] " + desc)
       } else {
         failed = true
         onFail
-        log.info("[" + Colors.red("fail") + "] " + desc + " (" + errors.size + " errors)")
+        log.info("[" + Colors26.red("fail") + "] " + desc + " (" + errors.size + " errors)")
       }
     }
 
@@ -565,9 +566,9 @@ object PlayDocsValidation extends PlayDocsValidationCompat {
     ec.shutdownNow()
 
     if (invalidRefs.isEmpty) {
-      log.info("[" + Colors.green("pass") + "] External links test")
+      log.info("[" + Colors26.green("pass") + "] External links test")
     } else {
-      log.info("[" + Colors.red("fail") + "] External links test (" + invalidRefs.size + " errors)")
+      log.info("[" + Colors26.red("fail") + "] External links test (" + invalidRefs.size + " errors)")
       throw new RuntimeException("External links validation failed")
     }
 

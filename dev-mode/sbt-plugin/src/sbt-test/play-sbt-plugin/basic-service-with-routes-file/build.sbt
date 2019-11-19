@@ -12,7 +12,7 @@ lazy val root = (project in file("."))
       component("play-akka-http-server")
     ),
     scalaVersion := sys.props.get("scala.version").getOrElse("2.12.6"),
-    InputKey[Unit]("verifyResourceContains") := {
+    InputKey[Unit]("verifyResourceContains26") := {
       val args       = Def.spaceDelimited("<path> <status> <words> ...").parsed
       val path       = args.head
       val status     = args.tail.head.toInt

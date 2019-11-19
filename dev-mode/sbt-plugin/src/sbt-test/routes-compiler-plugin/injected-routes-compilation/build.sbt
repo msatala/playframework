@@ -40,7 +40,7 @@ managedResourceDirectories in TestAssets += target.value / "web" / "jsrouter"
 // We don't want source position mappers is this will make it very hard to debug
 sourcePositionMappers := Nil
 
-routesGenerator := play.routes.compiler.InjectedRoutesGenerator
+routesGenerator := shaded26.play.routes.compiler.InjectedRoutesGenerator
 
 play.sbt.routes.RoutesKeys.routesImport := Seq()
 

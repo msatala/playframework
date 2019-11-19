@@ -2,7 +2,7 @@
  * Copyright (C) 2009-2019 Lightbend Inc. <https://www.lightbend.com>
  */
 
-package play.routes.compiler
+package shaded26.play.routes.compiler
 
 import java.io.File
 
@@ -20,7 +20,7 @@ class RoutesFileParserSpec extends Specification {
     }
 
     def parseRule(line: String): Rule = {
-      val result = RoutesFileParser.parseContent(line, new File("routes"))
+      val result = RoutesFileParser26.parseContent(line, new File("routes"))
       result must beRight[Any]
       val rules = result.right.get
       rules.length must_== 1
@@ -28,7 +28,7 @@ class RoutesFileParserSpec extends Specification {
     }
 
     def parseError(line: String): Result = {
-      val result = RoutesFileParser.parseContent(line, new File("routes"))
+      val result = RoutesFileParser26.parseContent(line, new File("routes"))
       result match {
         case Left(errors) => ok
         case Right(rules) => ko("Routes compilation was successful, expected error")

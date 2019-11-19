@@ -4,7 +4,7 @@
 
 package play.sbt.routes
 
-import play.routes.compiler.RoutesCompiler.GeneratedSource
+import shaded26.play.routes.compiler.RoutesCompiler.GeneratedSource
 import sbt._
 import xsbti.Maybe
 import xsbti.Position
